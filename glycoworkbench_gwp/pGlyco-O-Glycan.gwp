@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><GlycanWorkspace>
+<Configuration>
+<GAGOptions>
+<min_no_acetyls>0</min_no_acetyls>
+<min_no_units>1</min_no_units>
+<max_no_sulfates>999</max_no_sulfates>
+<derivatization>Und</derivatization>
+<allow_unlikely_acetylation>false</allow_unlikely_acetylation>
+<is_reduced>false</is_reduced>
+<gag_families>heparan</gag_families>
+<is_unsaturated>true</is_unsaturated>
+<max_no_acetyls>999</max_no_acetyls>
+<min_no_sulfates>0</min_no_sulfates>
+<allow_redend_loss>false</allow_redend_loss>
+<max_no_units>5</max_no_units>
+<modifications/>
+</GAGOptions>
+<GraphicOptions>
+<show_masses>false</show_masses>
+<composition_font_face_custom>SansSerif.plain</composition_font_face_custom>
+<mass_text_size_custom>14</mass_text_size_custom>
+<show_redend>false</show_redend>
+<show_info_custom>true</show_info_custom>
+<node_size_custom>22</node_size_custom>
+<linkage_info_font_face_custom>Serif.plain</linkage_info_font_face_custom>
+<notation>cfg</notation>
+<structures_space_custom>40</structures_space_custom>
+<mass_text_font_face_custom>SansSerif.plain</mass_text_font_face_custom>
+<mass_text_space_custom>15</mass_text_space_custom>
+<composition_font_size_custom>18</composition_font_size_custom>
+<theme>org.pushingpixels.substance.api.skin.OfficeBlue2007Skin</theme>
+<scale_canvas>1.0</scale_canvas>
+<orientation>3</orientation>
+<node_sub_space_custom>1</node_sub_space_custom>
+<node_font_size_custom>14</node_font_size_custom>
+<display>normalinfo</display>
+<show_masses_canvas>true</show_masses_canvas>
+<node_font_face_custom>SansSerif.plain</node_font_face_custom>
+<save_spectra>false</save_spectra>
+<linkage_info_size_custom>12</linkage_info_size_custom>
+<node_space_custom>30</node_space_custom>
+<collapse_multiple_antennae>true</collapse_multiple_antennae>
+<show_info>true</show_info>
+</GraphicOptions>
+<FragmentOptions>
+<max_no_crossrings>1</max_no_crossrings>
+<add_yfragments>true</add_yfragments>
+<add_zfragments>true</add_zfragments>
+<internal_fragments>false</internal_fragments>
+<max_no_cleavages>2</max_no_cleavages>
+<add_cfragments>true</add_cfragments>
+<add_afragments>false</add_afragments>
+<add_xfragments>false</add_xfragments>
+<add_bfragments>true</add_bfragments>
+</FragmentOptions>
+<MassOptions>
+<reducing_end_type>freeEnd</reducing_end_type>
+<neutral_exchanges>0</neutral_exchanges>
+<isotope>MONO</isotope>
+<derivatization>perMe</derivatization>
+<ion_cloud>0</ion_cloud>
+</MassOptions>
+<CompositionOptions>
+<hexn>0</hexn>
+<neu5ac>0</neu5ac>
+<pyr>0</pyr>
+<neu5gc>0</neu5gc>
+<mur>0</mur>
+<or1_mass>0.0</or1_mass>
+<hep>0</hep>
+<hexa>0</hexa>
+<pen>0</pen>
+<dhex>0</dhex>
+<neu5aclac>0</neu5aclac>
+<hex>0</hex>
+<dpen>0</dpen>
+<ac>0</ac>
+<hexnac>0</hexnac>
+<ddhex>0</ddhex>
+<mehex>0</mehex>
+<or2_mass>0.0</or2_mass>
+<or2>0</or2>
+<or1>0</or1>
+<p>0</p>
+<or3>0</or3>
+<s>0</s>
+<pc>0</pc>
+<kdn>0</kdn>
+<kdp>0</kdp>
+<neu5gclac>0</neu5gclac>
+<dhexa>0</dhexa>
+<or3_mass>0.0</or3_mass>
+</CompositionOptions>
+<FileHistory>
+<file_path5/>
+<file_path4/>
+<file_path7/>
+<file_type0>Workspace</file_type0>
+<file_path6/>
+<file_path1>C:\Users\pGlyco\Desktop\O-glyco.gwp</file_path1>
+<file_type1>Workspace</file_type1>
+<file_path0>C:\workspace\pGlyco\pGlyco\pGlycoDB\O-glyco.gwp</file_path0>
+<file_type2>Workspace</file_type2>
+<file_path3>C:\Users\pGlyco\Desktop\test.gws</file_path3>
+<file_type3>Structures</file_type3>
+<file_path2>C:\Users\pGlyco\Desktop\test.gwp</file_path2>
+<file_type4/>
+<file_type5/>
+<file_type6/>
+<file_type7/>
+</FileHistory>
+<ProfilerOptions>
+<other_redend_mass>0.0</other_redend_mass>
+<last_source/>
+<user_dictionaries_filename/>
+<reducing_end>freeEnd</reducing_end>
+<last_type/>
+<clear_existing_annotations>false</clear_existing_annotations>
+<derivatization>Und</derivatization>
+<other_redend_name/>
+<last_dict_name/>
+<dictionaries>Carbbank</dictionaries>
+</ProfilerOptions>
+<AnnotationOptions>
+<gain_nh3>false</gain_nh3>
+<mass_accuracy_unit>Da</mass_accuracy_unit>
+<max_no_h_ions>1</max_no_h_ions>
+<max_no_k_ions>0</max_no_k_ions>
+<loss_nh3>false</loss_nh3>
+<mass_accuracy>1.0</mass_accuracy>
+<derive_from_parent>true</derive_from_parent>
+<compute_exchanges>false</compute_exchanges>
+<negative_mode>false</negative_mode>
+<max_no_charges>1</max_no_charges>
+<max_ex_na_ions>999</max_ex_na_ions>
+<max_ex_li_ions>999</max_ex_li_ions>
+<max_no_na_ions>0</max_no_na_ions>
+<max_no_li_ions>0</max_no_li_ions>
+<clear_existing_annotations>false</clear_existing_annotations>
+<loss_h2o>false</loss_h2o>
+<gain_h2o>false</gain_h2o>
+<loss_co2>false</loss_co2>
+<gain_co2>false</gain_co2>
+<max_ex_k_ions>999</max_ex_k_ions>
+</AnnotationOptions>
+<ProfilesComparisonReportOptions>
+<deconvolution>0</deconvolution>
+<normalizebyrow>true</normalizebyrow>
+<normalization>3</normalization>
+<representation>1</representation>
+</ProfilesComparisonReportOptions>
+<PeakPicker>
+<deconvolution_fitting_penalties_left_width>0.0</deconvolution_fitting_penalties_left_width>
+<deconvolution_fitting_eps_abs>1.0E-5</deconvolution_fitting_eps_abs>
+<deconvolution_fitting_fwhm_threshold>0.7</deconvolution_fitting_fwhm_threshold>
+<WinLen>200.0</WinLen>
+<deconvolution_skip_deconvolution>yes</deconvolution_skip_deconvolution>
+<Optimization_penalties_position>0.0</Optimization_penalties_position>
+<thresholds_signal_to_noise>2.0</thresholds_signal_to_noise>
+<deconvolution_fitting_penalties_right_width>0.0</deconvolution_fitting_penalties_right_width>
+<wavelet_transform_scale>0.15</wavelet_transform_scale>
+<Optimization_delta_abs_error>1.0E-4</Optimization_delta_abs_error>
+<thresholds_search_radius>3</thresholds_search_radius>
+<Optimization_penalties_right_width>1.0</Optimization_penalties_right_width>
+<Optimization_optimization>no</Optimization_optimization>
+<Optimization_delta_rel_error>1.0E-4</Optimization_delta_rel_error>
+<thresholds_fwhm_bound>0.2</thresholds_fwhm_bound>
+<thresholds_correlation>0.5</thresholds_correlation>
+<deconvolution_fitting_max_iteration>10</deconvolution_fitting_max_iteration>
+<thresholds_peak_bound>200.0</thresholds_peak_bound>
+<deconvolution_fitting_eps_rel>1.0E-5</deconvolution_fitting_eps_rel>
+<Optimization_penalties_left_width>1.0</Optimization_penalties_left_width>
+<deconvolution_scaling>0.12</deconvolution_scaling>
+<deconvolution_left_width>2</deconvolution_left_width>
+<Optimization_iterations>15</Optimization_iterations>
+<deconvolution_fitting_penalties_height>1.0</deconvolution_fitting_penalties_height>
+<deconvolution_right_width>2</deconvolution_right_width>
+<thresholds_peak_bound_ms2_level>50.0</thresholds_peak_bound_ms2_level>
+<deconvolution_asym_threshold>0.3</deconvolution_asym_threshold>
+<wavelet_transform_spacing>0.001</wavelet_transform_spacing>
+<deconvolution_fitting_penalties_position>0.0</deconvolution_fitting_penalties_position>
+<thresholds_noise_level>0.1</thresholds_noise_level>
+</PeakPicker>
+<ResidueHistory>
+<queue_size>0</queue_size>
+</ResidueHistory>
+<PeakfinderOptions>
+<max_or3>0</max_or3>
+<max_or2>0</max_or2>
+<min_neu5gc>0</min_neu5gc>
+<max_neu5gc>0</max_neu5gc>
+<max_or1>0</max_or1>
+<max_kdo>0</max_kdo>
+<max_kdn>0</max_kdn>
+<min_neu5aclac>0</min_neu5aclac>
+<max_hex>8</max_hex>
+<min_hexa>0</min_hexa>
+<max_pc>0</max_pc>
+<min_kdp>0</min_kdp>
+<min_kdn>0</min_kdn>
+<derivatization>Und</derivatization>
+<min_or3>0</min_or3>
+<max_ddhex>0</max_ddhex>
+<min_or2>0</min_or2>
+<min_or1>0</min_or1>
+<other_redend_mass>0.0</other_redend_mass>
+<min_mur>0</min_mur>
+<max_mur>0</max_mur>
+<or3_mass>0.0</or3_mass>
+<max_hexnac>7</max_hexnac>
+<min_hex>0</min_hex>
+<max_dhexa>0</max_dhexa>
+<min_pen>0</min_pen>
+<max_mehex>0</max_mehex>
+<min_neu5ac>0</min_neu5ac>
+<min_hep>0</min_hep>
+<or1_mass>0.0</or1_mass>
+<max_ac>0</max_ac>
+<min_ac>0</min_ac>
+<min_ddhex>0</min_ddhex>
+<other_redend_name>XXX</other_redend_name>
+<max_neu5ac>2</max_neu5ac>
+<min_neu5gclac>0</min_neu5gclac>
+<reducing_end>freeEnd</reducing_end>
+<max_hexn>0</max_hexn>
+<min_hexnac>0</min_hexnac>
+<max_neu5aclac>0</max_neu5aclac>
+<min_dhexa>0</min_dhexa>
+<min_dhex>0</min_dhex>
+<max_pen>0</max_pen>
+<or2_mass>0.0</or2_mass>
+<max_hexa>0</max_hexa>
+<max_hep>0</max_hep>
+<min_mehex>0</min_mehex>
+<min_hexn>0</min_hexn>
+<min_dpen>0</min_dpen>
+<max_neu5gclac>0</max_neu5gclac>
+<min_p>0</min_p>
+<min_pyr>0</min_pyr>
+<max_s>0</max_s>
+<min_s>0</min_s>
+<max_p>0</max_p>
+<max_dhex>2</max_dhex>
+<max_dpen>0</max_dpen>
+<max_pyr>0</max_pyr>
+<min_pc>0</min_pc>
+</PeakfinderOptions>
+<AnnotationReportOptions>
+<show_relative_intensities>true</show_relative_intensities>
+<scale_glycans>0.35</scale_glycans>
+<spectrum_color>-16777216</spectrum_color>
+<annotation_mz_font>SansSerif.plain</annotation_mz_font>
+<show_complete_peak_list>false</show_complete_peak_list>
+<draw_y_margin>20</draw_y_margin>
+<chart_x_margin>20</chart_x_margin>
+<chart_y_margin>20</chart_y_margin>
+<annotation_margin>10</annotation_margin>
+<chart_width>700</chart_width>
+<show_empty_annotations>false</show_empty_annotations>
+<connection_lines_color>-4144960</connection_lines_color>
+<annotation_line_miny>12</annotation_line_miny>
+<chart_height>400</chart_height>
+<show_max_intensity>true</show_max_intensity>
+<annotation_line_width>1.0</annotation_line_width>
+<draw_x_margin>20</draw_x_margin>
+<show_raw_spectrum>true</show_raw_spectrum>
+<highlighted_color>-256</highlighted_color>
+<mass_text_color>-16777216</mass_text_color>
+<annotation_mz_size>10</annotation_mz_size>
+</AnnotationReportOptions>
+<dictionaries>
+<uoxfcol_residueStylesFile>/conf/residue_styles_uoxfcol</uoxfcol_residueStylesFile>
+<cfgBW_residuePlacementsFile>/conf/residue_placements_cfg</cfgBW_residuePlacementsFile>
+<uoxf_residueStylesFile>/conf/residue_styles_uoxf</uoxf_residueStylesFile>
+<cfgLink_residuePlacementsFile>/conf/residue_placements_uoxf</cfgLink_residuePlacementsFile>
+<text_residuePlacementsFile>/conf/residue_placements_cfg</text_residuePlacementsFile>
+<cfgBW_residueStylesFile>/conf/residue_styles_cfgbw</cfgBW_residueStylesFile>
+<crossRingFragmentTypesFile>/conf/cross_ring_fragment_types</crossRingFragmentTypesFile>
+<uoxf_residuePlacementsFile>/conf/residue_placements_uoxf</uoxf_residuePlacementsFile>
+<cfgLink_residueStylesFile>/conf/residue_styles_cfg</cfgLink_residueStylesFile>
+<terminalTypesFile>/conf/terminal_types</terminalTypesFile>
+<text_linkageStylesFile>/conf/linkage_styles_cfg</text_linkageStylesFile>
+<cfg_residuePlacementsFile>/conf/residue_placements_cfg</cfg_residuePlacementsFile>
+<cfg_residueStylesFile>/conf/residue_styles_cfg</cfg_residueStylesFile>
+<coreTypesFile>/conf/core_types</coreTypesFile>
+<uoxf_linkageStylesFile>/conf/linkage_styles_uoxf</uoxf_linkageStylesFile>
+<cfgLink_linkageStylesFile>/conf/linkage_styles_cfglink</cfgLink_linkageStylesFile>
+<cfgBW_linkageStylesFile>/conf/linkage_styles_cfg</cfgBW_linkageStylesFile>
+<cfg_linkageStylesFile>/conf/linkage_styles_cfg</cfg_linkageStylesFile>
+<residueTypesFile>/conf/residue_types</residueTypesFile>
+<uoxfcol_residuePlacementsFile>/conf/residue_placements_uoxf</uoxfcol_residuePlacementsFile>
+<uoxfcol_linkageStylesFile>/conf/linkage_styles_uoxf</uoxfcol_linkageStylesFile>
+<text_residueStylesFile>/conf/residue_styles_text</text_residueStylesFile>
+</dictionaries>
+</Configuration>
+<Scan name="Scan" is_msms="true">
+<Structures>
+<Glycan structure="freeEnd--??1D-GalNAc,p--??1D-Gal,p--??2D-NeuAc,p$MONO,perMe,0,0,freeEnd"/>
+<Glycan structure="freeEnd--??1D-GalNAc,p(--??1D-Gal,p)--??2D-NeuAc,p$MONO,perMe,0,0,freeEnd"/>
+<Glycan structure="freeEnd--??1D-GalNAc,p(--??1D-Gal,p)--??1D-GlcNAc,p--??1D-Gal,p$MONO,perMe,0,0,freeEnd"/>
+<Glycan structure="freeEnd--??1D-GalNAc,p--??1D-Gal,p(--??1D-GalNAc,p)--??2D-NeuAc,p$MONO,perMe,0,0,freeEnd"/>
+<Glycan structure="freeEnd--??1D-GalNAc,p(--??1D-Gal,p)--??1D-GlcNAc,p--??1D-Gal,p--??1D-Gal,p$MONO,perMe,0,0,freeEnd"/>
+<Glycan structure="freeEnd--??1D-GalNAc,p(--??1D-Gal,p--??2D-NeuAc,p)--??2D-NeuAc,p$MONO,perMe,0,0,freeEnd"/>
+<Glycan structure="freeEnd--??1D-GalNAc,p(--??1D-Gal,p--??2D-NeuAc,p)--??1D-GlcNAc,p--??1D-Gal,p$MONO,perMe,0,0,freeEnd"/>
+<Glycan structure="freeEnd--??1D-GalNAc,p(--??1D-Gal,p)--??1D-GlcNAc,p--??1D-Gal,p--??2D-NeuAc,p$MONO,perMe,0,0,freeEnd"/>
+<Glycan structure="freeEnd--??1D-GalNAc,p(--??1D-Gal,p(--??1D-GalNAc,p)--??2D-NeuAc,p)--??1D-GlcNAc,p$MONO,perMe,0,0,freeEnd"/>
+<Glycan structure="freeEnd--??1D-GalNAc,p(--??1D-Gal,p(--??1D-GalNAc,p)--??2D-NeuAc,p)--??2D-NeuAc,p$MONO,perMe,0,0,freeEnd"/>
+<Glycan structure="freeEnd--??1D-GalNAc,p(--??1D-Gal,p--??2D-NeuAc,p)--??1D-GlcNAc,p--??1D-Gal,p--??1D-Gal,p$MONO,perMe,0,0,freeEnd"/>
+<Glycan structure="freeEnd--??1D-GalNAc,p(--??1D-Gal,p(--??1D-GalNAc,p)--??2D-NeuAc,p)--??1D-GlcNAc,p--??1D-Gal,p$MONO,perMe,0,0,freeEnd"/>
+<Glycan structure="freeEnd--??1D-GalNAc,p(--??1D-Gal,p--??2D-NeuAc,p)--??1D-GlcNAc,p--??1D-Gal,p--??2D-NeuAc,p$MONO,perMe,0,0,freeEnd"/>
+<Glycan structure="freeEnd--??1D-GalNAc,p(--??1D-Gal,p--??2D-NeuAc,p)--??1D-GlcNAc,p--??1D-Gal,p--??1D-Gal,p--??1L-Fuc,p$MONO,perMe,0,0,freeEnd"/>
+<Glycan structure="freeEnd--??1D-GalNAc,p(--??1D-Gal,p(--??1D-GalNAc,p)--??2D-NeuAc,p)--??1D-GlcNAc,p--??1D-Gal,p--??1D-Gal,p$MONO,perMe,0,0,freeEnd"/>
+<Glycan structure="freeEnd--??1D-GalNAc,p(--??1D-Gal,p)--??1D-GlcNAc,p--??1D-Gal,p--??1D-GlcNAc,p--??1D-Gal,p--??2D-NeuAc,p$MONO,perMe,0,0,freeEnd"/>
+<Glycan structure="freeEnd--??1D-GalNAc,p(--??1D-Gal,p--??2D-NeuAc,p)--??1D-GlcNAc,p(--??1D-Gal,p--??2D-NeuAc,p)--??1L-Fuc,p$MONO,perMe,0,0,freeEnd"/>
+<Glycan structure="freeEnd--??1D-GalNAc,p(--??1D-Gal,p--??2D-NeuAc,p)--??1D-GlcNAc,p--??1D-Gal,p(--??1D-GalNAc,p)--??2D-NeuAc,p$MONO,perMe,0,0,freeEnd"/>
+<Glycan structure="freeEnd--??1D-GalNAc,p(--??1D-Gal,p(--??1D-GalNAc,p)--??2D-NeuAc,p)--??1D-GlcNAc,p--??1D-Gal,p--??2D-NeuAc,p$MONO,perMe,0,0,freeEnd"/>
+<Glycan structure="freeEnd--??1D-GalNAc,p(--??1D-Gal,p--??2D-NeuAc,p)--??1D-GlcNAc,p--??1D-Gal,p--??1D-GlcNAc,p--??1D-Gal,p--??1D-Gal,p$MONO,perMe,0,0,freeEnd"/>
+<Glycan structure="freeEnd--??1D-GalNAc,p(--??1D-Gal,p(--??1D-GalNAc,p)--??2D-NeuAc,p)--??1D-GlcNAc,p--??1D-Gal,p(--??1D-GalNAc,p)--??2D-NeuAc,p$MONO,perMe,0,0,freeEnd"/>
+<Glycan structure="freeEnd--??1D-GalNAc,p(--??1D-Gal,p(--??1D-GalNAc,p)--??2D-NeuAc,p)--??1D-GlcNAc,p--??1D-Gal,p--??1D-GlcNAc,p--??1D-Gal,p--??1D-Gal,p$MONO,perMe,0,0,freeEnd"/>
+<Glycan structure="freeEnd--??1D-GalNAc,p(--??1D-Gal,p--??2D-NeuAc,p)--??1D-GlcNAc,p--??1D-Gal,p--??1D-GlcNAc,p--??1D-Gal,p(--??1D-GalNAc,p)--??2D-NeuAc,p$MONO,perMe,0,0,freeEnd"/>
+<Glycan structure="freeEnd--??1D-GalNAc,p(--??1D-Gal,p--??2D-NeuAc,p)--??1D-GlcNAc,p--??1D-Gal,p--??1D-GlcNAc,p--??1D-Gal,p--??1D-GlcNAc,p--??1D-Gal,p--??1D-Gal,p$MONO,perMe,0,0,freeEnd"/>
+<Glycan structure="freeEnd--??1D-GalNAc,p(--??1D-Gal,p(--??2D-NeuAc,p)--??1D-GalNAc,p)--??1D-GlcNAc,p--??1D-Gal,p(--??1D-GlcNAc,p--??1D-Gal,p--??2D-NeuAc,p)--??1D-GlcNAc,p--??1D-Gal,p--??1D-Gal,p$MONO,perMe,0,0,freeEnd"/>
+<Glycan structure="freeEnd--??1D-GalNAc,p(--??1D-Gal,p(--??1D-GalNAc,p)--??2D-NeuAc,p--??2D-NeuAc,p)--??1D-GlcNAc,p--??1D-Gal,p(--??1D-GalNAc,p)--??2D-NeuAc,p--??2D-NeuAc,p$MONO,perMe,0,0,freeEnd"/>
+<Glycan structure="freeEnd--??1D-GalNAc,p(--??1D-Gal,p(--??1D-GalNAc,p)--??2D-NeuAc,p)--??1D-GlcNAc,p--??1D-Gal,p--??1D-GlcNAc,p--??1D-Gal,p(--??1D-GalNAc,p)--??2D-NeuAc,p$MONO,perMe,0,0,freeEnd"/>
+<Glycan structure="freeEnd--??1D-GalNAc,p(--??1D-Gal,p(--??2D-NeuAc,p)--??1D-GalNAc,p)--??1D-GlcNAc,p--??1D-Gal,p(--??1D-GlcNAc,p--??1D-Gal,p--??2D-NeuAc,p)--??1D-GlcNAc,p--??1D-Gal,p--??1D-Gal,p$MONO,perMe,0,0,freeEnd"/>
+<Glycan structure="freeEnd--??1D-GalNAc,p(--??1D-Gal,p(--??1D-GalNAc,p)--??2D-NeuAc,p)--??1D-GlcNAc,p--??1D-Gal,p(--??1D-GlcNAc,p--??1D-Gal,p--??1D-Gal,p)--??1D-GlcNAc,p--??1D-Gal,p--??1D-Gal,p$MONO,perMe,0,0,freeEnd"/>
+<Glycan structure="freeEnd--??1D-GalNAc,p(--??1D-Gal,p--??2D-NeuAc,p)--??1D-GlcNAc,p--??1D-Gal,p--??1D-GlcNAc,p--??1D-Gal,p--??1D-Gal,p(--??1D-GlcNAc,p--??1D-Gal,p)--??1D-GlcNAc,p--??1D-Gal,p--??2D-NeuAc,p$MONO,perMe,0,0,freeEnd"/>
+<Glycan structure="freeEnd--??1D-GalNAc,p(--??1D-Gal,p--??2D-NeuAc,p)--??1D-GlcNAc,p--??1D-Gal,p(--??1D-GlcNAc,p--??1D-Gal,p--??2D-NeuAc,p)--??1D-GlcNAc,p--??1D-Gal,p--??2D-NeuAc,p$MONO,perMe,0,0,freeEnd"/>
+<Glycan structure="freeEnd--??1D-GalNAc,p(--??1D-Gal,p(--??1D-GalNAc,p)--??2D-NeuAc,p)--??1D-GlcNAc,p--??1D-Gal,p(--??1D-GlcNAc,p--??1D-Gal,p(--??1D-GalNAc,p)--??2D-NeuAc,p)--??1D-GlcNAc,p--??1D-Gal,p--??1D-Gal,p$MONO,perMe,0,0,freeEnd"/>
+<Glycan structure="freeEnd--??1D-GalNAc,p(--??1D-Gal,p--??2D-NeuAc,p)--??1D-GlcNAc,p(--??1D-Gal,p--??1D-GlcNAc,p(--??1D-Gal,p--??2D-NeuAc,p)--??1L-Fuc,p)--??1L-Fuc,p$MONO,perMe,0,0,freeEnd"/>
+<Glycan structure="freeEnd--??1D-GalNAc,p(--??1D-Gal,p--??2D-NeuAc,p)--??1D-GlcNAc,p(--??1D-Gal,p--??2D-NeuAc,p)--??1L-Fuc,p$MONO,perMe,0,0,freeEnd"/>
+<Glycan structure="freeEnd--??1D-GalNAc,p(--??1D-Gal,p(--??2D-NeuAc,p)--??1D-GalNAc,p)--??1D-GlcNAc,p(--??1D-Gal,p--??1D-GlcNAc,p(--??1D-Gal,p--??1D-GlcNAc,p(--??1D-Gal,p--??2D-NeuAc,p)--??1L-Fuc,p)--??1L-Fuc,p)--??1L-Fuc,p$MONO,perMe,0,0,freeEnd"/>
+<Glycan structure="freeEnd--??1D-GalNAc,p(--??1D-Gal,p(--??2D-NeuAc,p)--??1D-GalNAc,p)--??1D-GlcNAc,p--??1D-Gal,p(--??1D-GlcNAc,p--??1D-Gal,p--??2D-NeuAc,p)--??1D-GlcNAc,p(--??1L-Fuc,p)--??1D-Gal,p--??1D-GlcNAc,p(--??1D-Gal,p)--??1L-Fuc,p$MONO,perMe,0,0,freeEnd"/>
+<Glycan structure="freeEnd--??1D-Gal,p--??1L-Fuc,p$MONO,perMe,0,0,freeEnd"/>
+<Glycan structure="freeEnd--??1D-GlcNAc,p--??1D-Gal,p(--??1L-Fuc,p)--??1D-GalNAc,p$MONO,perMe,0,0,freeEnd"/>
+<Glycan structure="freeEnd--??1D-GalNAc,p(--??1D-GlcNAc,p--??1D-Gal,p(--??1L-Fuc,p)--??1D-GalNAc,p)--??1D-Gal,p--??1D-GlcNAc,p$MONO,perMe,0,0,freeEnd"/>
+<Glycan structure="freeEnd--??1D-GalNAc,p(--??1D-GlcNAc,p--??1D-Gal,p--??1L-Fuc,p)--??1D-Gal,p(--??1L-Fuc,p)--??1D-GlcNAc,p--??1D-Gal,p--??1D-GlcNAc,p--??1D-Gal,p--??1L-Fuc,p$MONO,perMe,0,0,freeEnd"/>
+</Structures>
+<Fragments/>
+<PeakList/>
+<AnnotatedPeakList/>
+<Notes/>
+</Scan>
+</GlycanWorkspace>

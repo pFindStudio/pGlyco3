@@ -65,6 +65,7 @@ def ProteinAnalysis(txt):
 def ProteinOutput(txt, protein_sites):
     with open(os.path.join(os.path.dirname(txt), 'pGlyco3-ProSite-Analysis.txt'),'w') as f:
         f.writelines(['\t'.join(items)+'\n' for items in protein_sites])
+    print('results saved as "%s"'%os.path.join(os.path.dirname(txt), 'pGlyco3-ProSite-Analysis.txt'))
         
 if __name__ == '__main__':
     import sys

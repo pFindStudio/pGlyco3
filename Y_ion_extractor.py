@@ -161,3 +161,4 @@ if __name__ == "__main__":
     df[['Y-'+ion for ion in Yions]] = matched_intens
     
     df.to_csv(os.path.join(output_dir, 'extract_Y_ions.txt'), sep='\t', index=False)
+    print("result saved as '%s'"%os.path.join(output_dir, 'extract_Y_ions.txt'))

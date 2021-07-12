@@ -43,7 +43,7 @@ def ProteinAnalysis(txt):
                 for i,protein in enumerate(proteins):
                     gene = genes[i]
                     prositegroup = peptide[pepsite-1] + prosites[i] + ':' + peptide[pepsite-1] + prosites[i]
-                    protein_sites.append([protein, gene, prositegroup, prosites[i], prosites[i], "", "", "", "", "", mono, isotope, peptide, glycan, prosites[i], mod, spec, raw, scan, ETDscan, glycan_fdr, peptide_fdr, total_fdr])
+                    protein_sites.append([protein, gene, prositegroup, prosites[i], prosites[i], "", "-1", "", "", "", mono, isotope, peptide, glycan, prosites[i], mod, spec, raw, scan, ETDscan, glycan_fdr, peptide_fdr, total_fdr])
             else:
                 SiteGroups = [group.split(',') for group in SiteGroups.split(';')]
                 for s1,s2,site_glycan,prob in SiteGroups:
@@ -58,7 +58,7 @@ def ProteinAnalysis(txt):
                         prosite2 = str(prosite+site2-pepsite)
                         prositegroup = s1[0] + prosite1 + ':' + s2[0] + prosite2
                         protein_sites.append([protein, gene, prositegroup, prosite1, prosite2, site_glycan, prob, "1" if prosite1==prosite2 else "0", "1" if prosite1!=prosite2 else "0", s1+':'+s2, mono, isotope, peptide, glycan, str(prosite), mod, spec, raw, scan, ETDscan, glycan_fdr, peptide_fdr, total_fdr])
-    protein_sites.sort(key = lambda x: (x[0], int(x[3]), int(x[4])))
+    protein_sites.sort(key = lambda x: (x[0], int(x[3]), int(x[4]), x[5], -float(x[6])))
     protein_sites.insert(0, ["Protein", "Gene", "ProteinSiteGroup", "StartSite", "EndSite", 'Localized'+glycan_head, "SiteProbability", "IsUniqueSite", "IsGroupSite", "PeptideSiteGroup", "MonoArea", "IsotopeArea", "Peptide", "AllSiteGlycan", "ProSite", "Mod", "Spectrum", "RawName", "Scan", "ETDScan", 'GlycanFDR', 'PeptideFDR', 'TotalFDR'])
     return protein_sites
 
@@ -74,4 +74,4 @@ if __name__ == '__main__':
         sys.exit(-1)
     protein_sites = ProteinAnalysis(sys.argv[1])
     ProteinOutput(sys.argv[1], protein_sites)
-    
+                    

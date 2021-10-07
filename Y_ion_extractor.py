@@ -1,4 +1,8 @@
-# usage: python Y_ion_extractor D:/xx/xx/pGlyco3.cfg
+usage = \
+"""
+Usage: python Y_ion_extractor D:/xx/xx/pGlyco3.cfg
+Output: extract_Y_ions.txt in 'output_dir' pointed in pGlyco3.cfg
+"""
 
 import os
 import struct
@@ -37,7 +41,7 @@ Yion_masses = np.array([calc_glycan_mass(glycan) for glycan in Yions])
 
 class pf2reader:
     def __init__(self, pf2=None):
-        self.scanidx = {}
+        self.scan2spec = {}
         self.pf2 = None
         if pf2:
             self.open(pf2)
@@ -51,17 +55,17 @@ class pf2reader:
         self.close()
         self.pf2 = open(pf2,'rb')
         
-        self.scanidx = {}
+        self.scan2spec = {}
         with open(pf2+'idx','rb') as f:
             while True:
                 chunk = f.read(8)
                 if not chunk: break
                 scan, index = struct.unpack('2i',chunk)
-                self.scanidx[scan] = index
+                self.scan2spec[scan] = index
                 
     def read_peaklist(self, scan):
         # only read the (mz, inten) list
-        self.pf2.seek(self.scanidx[scan])
+        self.pf2.seek(self.scan2spec[scan])
         _scan, nPeak = struct.unpack("2i",self.pf2.read(8))
         mz_int = struct.unpack(str(nPeak*2)+"d", self.pf2.read(nPeak*2*8))
         masses = []
@@ -72,6 +76,69 @@ class pf2reader:
             masses.append(mz)
             intens.append(inten)
         return np.array(masses), np.array(intens)
+
+def read_until(file, until):
+    lines = []
+    while True:
+        line = file.readline().strip()
+        if line.startswith(until):
+            break
+        else:
+            lines.append(line)
+    return lines
+
+def find_line(lines, start):
+    for line in lines:
+        if line.startswith(start):
+            return line
+    return None
+
+def parse_scan_from_TITLE(pfind_title):
+    return int(pfind_title.split('.')[-4])
+
+class MGFReader():
+    def __init__(self, mgf=None):
+        self.scan2spec = {}
+        if mgf is not None:
+            self.open(mgf)
+
+    def close(self):
+        pass
+
+    def open(self, mgf):
+        self.scan2spec = {}
+        print("Loading MGF ...")
+        with open(mgf) as f:
+            while True:
+                line = f.readline()
+                if not line: break
+                if line.startswith('BEGIN IONS'):
+                    lines = read_until(f, 'END IONS')
+                    masses = []
+                    intens = []
+                    scan = None
+                    for line in lines:
+                        if line[0].isdigit():
+                            mass,inten = [float(i) for i in line.strip().split()]
+                            masses.append(mass)
+                            intens.append(inten)
+                        elif line.startswith('SCAN='):
+                            scan = int(line.split('=')[1])
+                    if not scan:
+                        title = find_line(lines, 'TITLE=')
+                        scan = parse_scan_from_TITLE(title)
+                    self.scan2spec[scan] = (np.array(masses), np.array(intens))
+                    print(f'Scan={scan}', end='\r')
+        print("Finish loading MGF")
+
+    def read_peaklist(self, scan):
+        return self.scan2spec[scan]
+
+def get_ms2_reader(pf2):
+    if os.path.isfile(pf2):
+        return pf2reader(pf2)
+    else:
+        return MGFReader(pf2[:-3]+'mgf')
 
 def match(masses, intens, query_masses):
     query_masses = np.sort(query_masses)
@@ -92,6 +159,9 @@ def match(masses, intens, query_masses):
     
 if __name__ == "__main__":
     import sys
+    if len(sys.argv) == 1:
+        print(usage)
+        sys.exit(-1)
     cfg = sys.argv[1]
     
     with open(cfg) as f:
@@ -108,7 +178,7 @@ if __name__ == "__main__":
                 else:
                     raw_name = filename[:filename.rfind('_')]
                 raw_names.append(raw_name)
-                pf2_readers[raw_name] = pf2reader(os.path.join(_dir, raw_name+"_HCDFT.pf2"))
+                pf2_readers[raw_name] = get_ms2_reader(os.path.join(_dir, raw_name+"_HCDFT.pf2"))
                 
                 
     df = pd.read_csv(os.path.join(output_dir, pGlycoResult), sep='\t')

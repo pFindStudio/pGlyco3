@@ -9,11 +9,14 @@ import struct
 import pandas as pd
 import numpy as np
 
+import concurrent.futures as cf
+
 mass_proton = 1.007276
 mass_isotope = 1.0033
 tol = 20.0
 ppm = True
 deisotope=False
+n_process = 6
 
 glyco_mass = {}
 glyco_mass['N'] = 203.079372533
@@ -26,7 +29,7 @@ glyco_mass['pH'] = 242.0191544315
 glyco_mass['aH'] = 179.0793635
 
 
-Yions = ['N(1)F(1)', 'N(2)F(1)']
+Yions = ['N(1)F(1)', 'N(2)F(1)','N(2)H(1)F(1)', 'N(2)H(2)F(1)','N(2)H(3)F(1)', 'N(3)H(1)','N(1)H(1)']
 pGlycoResult = "pGlycoDB-GP-FDR-Pro-Quant-Site.txt"
 
 def calc_glycan_mass(glycan):
@@ -38,7 +41,17 @@ def calc_glycan_mass(glycan):
     return mass
     
 Yion_masses = np.array([calc_glycan_mass(glycan) for glycan in Yions])
-
+        
+def glycan_composition_to_vector(glycan_comp, glycan_list):
+    ret = np.zeros(len(glycan_list))
+    glycos = glycan_comp.strip(')').split(')')
+    for glyco in glycos:
+        glyco, n = glyco.split('(')
+        if glyco in glycan_list:
+            idx = glycan_list.index(glyco)
+            ret[idx] = float(n)
+    return ret
+    
 class pf2reader:
     def __init__(self, pf2=None):
         self.scan2spec = {}
@@ -139,8 +152,8 @@ def get_ms2_reader(pf2):
         return pf2reader(pf2)
     else:
         return MGFReader(pf2[:-3]+'mgf')
-
-def match(masses, intens, query_masses):
+        
+def match_for_loop(masses, intens, query_masses):
     query_masses = np.sort(query_masses)
     if ppm: tols = query_masses*tol*1e-6
     else: tols = np.ones_like(query_masses)*tol
@@ -156,57 +169,44 @@ def match(masses, intens, query_masses):
             query_intens[j] += intens[i]
             i += 1
     return query_intens
+
+def match_bisearch(masses, intens, query_masses):
+    if ppm: tols = query_masses*tol*1e-6
+    else: tols = np.ones_like(query_masses)*tol
+    idxes = np.searchsorted(masses, query_masses, side='right')
+    idxes[idxes>=len(masses)] = len(masses)-1
     
-if __name__ == "__main__":
-    import sys
-    if len(sys.argv) == 1:
-        print(usage)
-        sys.exit(-1)
-    cfg = sys.argv[1]
+    query_intens = np.zeros_like(query_masses)
+    matched_idxes = np.abs(masses[idxes]-query_masses)<=tols
+    query_intens[matched_idxes] += intens[idxes[matched_idxes]]
     
-    with open(cfg) as f:
-        lines = f.readlines()
-        raw_names = []
-        pf2_readers = {}
-        for line in lines:
-            if line.startswith('output_dir'):
-                output_dir = line[line.find('=')+1:].strip()
-            elif line.startswith('file'):
-                _dir, filename = os.path.split(line[line.find('=')+1:].strip())
-                if filename.lower().endswith('.raw'):
-                    raw_name = filename[:-4]
-                else:
-                    raw_name = filename[:filename.rfind('_')]
-                raw_names.append(raw_name)
-                pf2_readers[raw_name] = get_ms2_reader(os.path.join(_dir, raw_name+"_HCDFT.pf2"))
-                
-                
-    df = pd.read_csv(os.path.join(output_dir, pGlycoResult), sep='\t')
+    idxes -= 1
+    matched_idxes = np.abs(masses[idxes]-query_masses)<=tols
+    query_intens[matched_idxes] += intens[idxes[matched_idxes]]
     
-    for _head in df.columns.values:
+    return query_intens
+    
+match = match_bisearch
+    
+def run_one_raw(df_one_raw, raw_dir, raw_name):
+    print(f'Analyzing {raw_name} ...')
+    matched_intens = []
+    ms2_reader = get_ms2_reader(os.path.join(raw_dir, raw_name+"_HCDFT.pf2"))
+    
+    for _head in df_one_raw.columns.values:
         if _head.startswith('Glycan('):
             glycan_head = _head
             glycan_list = glycan_head[len('Glycan('):-1].split(',')
             break
             
-    def glycan_composition_to_vector(glycan_comp, glycan_list):
-        ret = np.zeros(len(glycan_list))
-        glycos = glycan_comp.strip(')').split(')')
-        for glyco in glycos:
-            glyco, n = glyco.split('(')
-            if glyco in glycan_list:
-                idx = glycan_list.index(glyco)
-                ret[idx] = float(n)
-        return ret
-        
     Yion_vectors = [glycan_composition_to_vector(glycan_comp, glycan_list) for glycan_comp in Yions]
-    
-    matched_intens = []
-    for rawname, scan, charge, peptide_mass, glycan_vector in df[f'RawName;Scan;Charge;PeptideMH;{glycan_head}'.split(';')].values:
-        print(rawname, scan)
+            
+    for i,(scan, charge, peptide_mass, glycan_vector) in enumerate(
+        df_one_raw[f'Scan;Charge;PeptideMH;{glycan_head}'.split(';')].values
+    ):
         peptide_mass -= mass_proton
         glycan_vector = np.array([float(g) for g in glycan_vector.strip().split(' ')])
-        masses, intens = pf2_readers[rawname].read_peaklist(scan)
+        masses, intens = ms2_reader.read_peaklist(scan)
         
         extract_intens = []
         for Ymass,Yvector in zip(Yion_masses,Yion_vectors):
@@ -226,9 +226,54 @@ if __name__ == "__main__":
                 extract_intens.append(0)
             
         matched_intens.append(extract_intens)
+        
+        if i % 100 == 0:
+            print(f'Analyzing {i} of {len(df_one_raw)} GPSMs in {raw_name} ...')
+            
     matched_intens = np.array(matched_intens)
     
-    df[['Y-'+ion for ion in Yions]] = matched_intens
+    df_one_raw[['Y-'+ion for ion in Yions]] = matched_intens 
+    print(f'Finish analyzing {raw_name} ...')
+    return df_one_raw
     
+
+def batch_run(df, n_process=6):
+    futures = []
+    df_list = []
+    with cf.ProcessPoolExecutor(n_process) as pp:
+        for raw_name, df_one_raw in df.groupby('RawName'):
+            futures.append(pp.submit(run_one_raw, df_one_raw, raw_dir, raw_name))
+        for future in cf.as_completed(futures):
+            df_list.append(future.result())
+    return pd.concat(df_list)
+    
+def single_run(df, *args):
+    df_list = []
+    for raw_name, df_one_raw in df.groupby('RawName'):
+        df_list.append(run_one_raw(df_one_raw, raw_dir, raw_name))
+    return pd.concat(df_list)
+
+if __name__ == '__main__':
+    import sys
+    if len(sys.argv) == 1:
+        print(usage)
+        sys.exit(-1)
+    cfg = sys.argv[1]
+
+    with open(cfg) as f:
+        lines = f.readlines()
+        raw_names = []
+        pf2_readers = {}
+        for line in lines:
+            if line.startswith('output_dir'):
+                output_dir = line[line.find('=')+1:].strip()
+            elif line.startswith('file'):
+                raw_dir, filename = os.path.split(line[line.find('=')+1:].strip())
+                
+                
+    df = pd.read_csv(os.path.join(output_dir, pGlycoResult), sep='\t')
+    
+    df = batch_run(df, n_process)
+
     df.to_csv(os.path.join(output_dir, 'extract_Y_ions.txt'), sep='\t', index=False)
     print("result saved as '%s'"%os.path.join(output_dir, 'extract_Y_ions.txt'))

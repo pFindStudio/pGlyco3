@@ -42,6 +42,8 @@ tol = 20.0
 ppm = True
 deisotope=False
 n_process = 6
+B_mass_tol = 0.02
+B_mass_ppm = False
 
 glyco_mass = {}
 glyco_mass['N'] = 203.079372533
@@ -55,6 +57,8 @@ glyco_mass['aH'] = 179.0793635
 
 
 Yions = ['N(1)F(1)', 'N(2)F(1)','N(2)H(1)F(1)', 'N(2)H(2)F(1)','N(2)H(3)F(1)', 'N(3)H(1)','N(1)H(1)']
+
+# mass: glycan_composition
 Bion_mass_dict = {
     138.055: 'N(1)',
     144.066: 'N(1)',
@@ -288,11 +292,11 @@ def run_one_raw(df_one_raw, raw_dir, raw_name):
         for B_mass, (B_comp,B_vector) in Bion_dict.items():
             if np.all(glycan_vector>=B_vector):
                 ions = np.array([B_mass])
-                ion_intens = match(masses, intens, ions, ppm=False, tol=0.02)
+                ion_intens = match(masses, intens, ions, ppm=B_mass_ppm, tol=B_mass_tol)
                 
                 if deisotope:
                     preisotope = ions - mass_isotope/np.arange(1, charge)
-                    preisotope = match(masses, intens, preisotope)
+                    preisotope = match(masses, intens, preisotope, ppm=B_mass_ppm, tol=B_mass_tol)
                     
                     ion_intens = ion_intens[preisotope==0]
                 

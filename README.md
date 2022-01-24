@@ -6,9 +6,7 @@ Please read User Guide is [here](https://github.com/pFindStudio/pGlyco3/blob/mai
 
 Citation:
 
-Wen-Feng Zeng, et.al. Precise, Fast and Comprehensive Analysis of Intact Glycopeptides and Monosaccharide-Modifications with pGlyco3. BioRxiv preprint, 2021. doi: 10.1101/2021.02.06.430063.
-
-https://www.biorxiv.org/content/10.1101/2021.02.06.430063v1.full
+Precise, fast and comprehensive analysis of intact glycopeptides and modified glycans with pGlyco3. Nature Methods 18, 1515–1523 (2021). https://doi.org/10.1038/s41592-021-01306-0
 
 Applying for a license: 
 

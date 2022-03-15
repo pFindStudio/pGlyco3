@@ -23,7 +23,7 @@ Some candidate marker ions:
     | 350.145 | Fuc+HexNAc       | C14H23O9N1         |
     | 366.140 | Hex+HexNAc       | C14H23O10N1        |
     | 512.197 | Hex+HexNAc+Fuc   | ...........        |
-    | 657.140 | Hex+HexNAc+NeuAc | C25H40O18N2        |
+    | 657.235 | Hex+HexNAc+NeuAc | C25H40O18N2        |
     | 673.230 | Hex+HexNAc+NeuGc | C25H40O19N2        |
     | 803.293 | Hex+HexNAc+Fuc+Ac| ...........        |
     | 948.330 | Hex+HexNAc+Ac(2) | ...........        |
@@ -73,7 +73,7 @@ Bion_mass_dict = {
     350.145: 'N(1)F(1)',
     366.140: 'N(1)H(1)',
     512.197: 'N(1)H(1)F(1)',
-    657.140: 'N(1)H(1)A(1)',
+    657.235: 'N(1)H(1)A(1)',
     673.230: 'N(1)H(1)G(1)',
     803.293: 'N(1)H(1)F(1)A(1)',
     948.330: 'N(1)H(1)A(2)',

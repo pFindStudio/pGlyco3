@@ -311,8 +311,8 @@ def run_one_raw(df_one_raw, raw_dir, raw_name):
     matched_Y_intens = np.array(matched_Y_intens)
     matched_B_intens = np.array(matched_B_intens)
     
-    df_one_raw[['Y-'+ion for ion in Yions]] = matched_Y_intens
-    df_one_raw[[f'B-{B_mass:.1f}' for B_mass, (B_comp,B_vector) in Bion_dict.items()]] = matched_B_intens
+    df_one_raw.loc[:,['Y-'+ion for ion in Yions]] = matched_Y_intens
+    df_one_raw.loc[:,[f'B-{B_mass:.1f}' for B_mass, (B_comp,B_vector) in Bion_dict.items()]] = matched_B_intens
     print(f'Finish analyzing {raw_name} ...')
     return df_one_raw
     

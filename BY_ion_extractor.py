@@ -1,6 +1,6 @@
 usage = \
 """
-Usage: python BY_ion_extractor D:/xx/xx/pGlyco3.cfg
+Usage: python BY_ion_extractor.py D:/xx/xx/pGlyco3.cfg
 Output: extract_BY_ions.txt in 'output_dir' pointed in pGlyco3.cfg
 
 Some candidate marker ions:

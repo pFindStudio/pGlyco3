@@ -2,7 +2,7 @@
 
 Intact N- and O-glycopeptide search engine
 
-Please read User Guide is [here](https://github.com/pFindStudio/pGlyco3/blob/main/pGlyco3-User-Guide.pdf).
+Please read User Guide is [here](https://github.com/pFindStudio/pGlyco3/blob/main/pGlyco3-User-Guide.pdf) or [backup url](https://figshare.com/articles/online_resource/pGlyco3_User_Guide/21096799).
 
 Citation:
 

@@ -10,6 +10,6 @@ Zeng, WF., Cao, WQ., Liu, MQ. et al. Precise, fast and comprehensive analysis of
 
 Applying for a license: 
 
-When using pGlyco3 for the first time, a license applicaiton dialog will show. After filling all the reguired items and clicking "copy to clipboard" to copy the form, you can then paste the form on http://i.pfind.org/license/pGlyco3 to generate a license. Please check your spam mailbox as our reply emails are sometimes in your spam mailbox.
+When using pGlyco3 for the first time, a license applicaiton dialog will show. After filling all the reguired items and clicking "copy to clipboard" to copy the form, you can then paste the form on http://i.pfind.net/license/pGlyco3 to generate a license. Please check your spam mailbox as our reply emails are sometimes in your spam mailbox.
 
 For glycopeptide quantification, please use pGlycoQuant: https://github.com/Power-Quant/pGlycoQuant/releases
